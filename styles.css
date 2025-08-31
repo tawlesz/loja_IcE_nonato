@@ -1,0 +1,140 @@
+    /* VARIÁVEIS */
+    
+    :root{
+      --bg: #0f172a;           /* fundo geral (azul bem escuro) */
+      --surface: #111827;      /* cartões/elementos */
+      --text: #e5e7eb;         /* texto primário (cinza claro) */
+      --muted: #9ca3af;        /* texto secundário */
+      --brand: #60a5fa;        /* cor de destaque (azul frio) */
+      --brand-2: #93c5fd;      /* destaque mais claro */
+      --ok: #34d399;           /* verde suave (ex: etiqueta) */
+      --warning: #fbbf24;      /* amarelo (ex: promoção) */
+      --radius: 16px;          /* cantos arredondados padrão */
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --container: 1200px;     /* largura máxima */
+    }
+    
+    /* RESET SIMPLES + BASE TIPOGRÁFICA */
+    *{box-sizing:border-box} html,body{margin:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(96,165,250,.15), transparent 60%),
+                  radial-gradient(1000px 500px at -10% 20%, rgba(147,197,253,.12), transparent 55%),
+                  var(--bg);
+      line-height: 1.55;
+    }
+
+    img{max-width:100%; display:block}
+    a{color:inherit; text-decoration:none}
+
+    .container{max-width:var(--container); margin-inline:auto; padding: 0 20px}
+
+    .btn{display:inline-block; padding:12px 18px; border-radius:12px; font-weight:600; transition:.2s transform, .2s opacity}
+
+    .btn:hover{transform:translateY(-1px)}
+
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0b1220}
+
+    .btn-ghost{border:1px solid rgba(229,231,235,.2); color:var(--text); background:transparent}
+
+    .badge{display:inline-flex; gap:8px; align-items:center; font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(96,165,250,.15); color:var(--brand-2); border:1px solid rgba(96,165,250,.25)}
+    
+    /* HEADER + NAV */
+    header{
+      position: sticky; top:0; z-index:100; backdrop-filter: blur(8px);
+      background: linear-gradient(to bottom, rgba(15,23,42,.8), rgba(15,23,42,.4));
+      border-bottom: 1px solid #ffffff0f;
+    }
+
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+
+    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.3px}
+
+    .brand-logo{width:36px; height:36px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:var(--shadow)}
+
+    .nav-links{display:none; gap:18px; font-weight:600; color:var(--muted)}
+
+    .nav-cta{display:flex; gap:10px; align-items:center}
+
+     /* HERO (capa) */
+    
+     .hero{padding:64px 0 24px}
+    
+    .hero-wrap{display:grid; grid-template-columns:1.3fr .9fr; gap:32px; align-items:center}
+    
+    .hero h1{font-size: clamp(28px, 4vw, 52px); line-height:1.1; margin:0 0 14px}
+    
+    .hero p{color:var(--muted); margin:0 0 24px}
+    
+    .hero-card{background:linear-gradient(160deg, rgba(17,24,39,.8), rgba(17,24,39,.55)); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+    
+    .hero-img{height:420px; border-radius:calc(var(--radius) + 4px); overflow:hidden; position:relative; border:1px solid rgba(255,255,255,.08)}
+    
+    .hero-img::after{ /* efeito de neve sutil */
+      content:""; position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 18px 18px; mix-blend-mode: screen; pointer-events:none
+    }
+
+    .hero-img > div{height:100%; background: url('https://images.unsplash.com/photo-1544441893-675973e31979?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; filter: saturate(.9) contrast(1.05)}
+
+    /* CATEGORIAS */
+    
+    .section{padding: 32px 0}
+    
+    .section h2{font-size: clamp(22px, 3vw, 34px); margin:0 0 8px}
+    
+    .section p.lead{color:var(--muted); margin:0 0 20px}
+    
+    .grid{display:grid; gap:16px}
+    
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    
+    .card{background:linear-gradient(160deg, rgba(17,24,39,.85), rgba(17,24,39,.6)); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
+    
+    .card-visual{aspect-ratio: 16/10; background:#0b1220; position:relative}
+    
+    .card-visual img{width:100%; height:100%; object-fit:cover}
+    
+    .card-body{padding:14px 16px}
+    
+    .card-title{font-size:18px; margin:0 0 6px}
+    
+    .card-text{color:var(--muted); font-size:14px; margin:0}
+
+    /* PRODUTOS */
+    
+    .price{font-weight:800}
+    
+    .price s{color: #9ca3af; font-weight:600; margin-left:8px}
+    
+    .product .card-body{display:grid; gap:10px}
+    
+    .add{width:100%; text-align:center}
+    
+    .flag{position:absolute; top:10px; left:10px; padding:6px 10px; font-weight:700; font-size:12px; border-radius:999px; background:rgba(20,83,136,.75); color:#dbeafe; border:1px solid rgba(147,197,253,.5)}
+
+    /* NEWSLETTER */
+    .newsletter{display:grid; grid-template-columns:1.2fr .8fr; gap:20px; align-items:center; margin-top:8px}
+    .newsletter .panel{background:linear-gradient(160deg, rgba(17,24,39,.9), rgba(17,24,39,.6)); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px}
+    .newsletter form{display:flex; gap:10px}
+    .newsletter input{flex:1; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1); background:#0b1220; color:var(--text)}
+
+    /* FOOTER */
+    footer{margin-top:32px; padding:24px 0 40px; border-top:1px solid rgba(255,255,255,.08); color:var(--muted)}
+    .footer-grid{display:grid; gap:16px; grid-template-columns: 1.2fr .8fr .8fr}
+    .footer-grid h4{margin:0 0 10px; color:var(--text)}
+    .footer-grid a{display:block; padding:6px 0; color:var(--muted)}
+
+    /* RESPONSIVO */
+    @media (max-width: 980px){
+      .hero-wrap{grid-template-columns: 1fr}
+      .newsletter{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .nav-links{display:none}
+    }
+    @media (min-width: 820px){.nav-links{display:flex}}
+    @media (max-width: 560px){.grid-4, .grid-3{grid-template-columns:1fr}}
